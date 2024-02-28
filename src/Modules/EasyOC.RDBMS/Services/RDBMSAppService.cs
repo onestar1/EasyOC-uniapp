@@ -117,10 +117,12 @@ namespace EasyOC.RDBMS.Services
                 .Select(x => {
                     var mResult = new DbTableInfoDto()
                     {
-                        ColumnsCount = x.Columns.Count
+                        ColumnsCount = x.Columns.Count,
+                       // Schema = $"{(x.Schema==""?"dbo":x.Schema)}",
                     };
                     x.Columns.Clear();
                     mResult = _mapper.Map(x, mResult);
+                   // mResult.Schema = $"{(x.Schema == "" ? "" : x.Schema)}";//mysql的情况下，不需要dbo  前端传值的时候判断就可以
                     return mResult;
                 }
                 );
@@ -172,6 +174,14 @@ namespace EasyOC.RDBMS.Services
                 var records = new List<ContentPartFieldDefinitionRecord>();
                 try
                 {
+                    // if(tableName.Contains("dbo."))
+                    // {
+                    //     tableName = tableName.Replace("dbo.", string.Empty);
+                    // }
+                    if(tableName.StartsWith("."))
+                    {
+                        tableName = tableName.Replace(".", string.Empty);
+                    }
                     var tb = freeSql.DbFirst.GetTableByName(tableName);
                     var fullName = $"{tb.Type.ToString().ToLower().ToPascalCase()}_{tb.Schema}.{tb.Name}";
                     var typeName = fullName.Replace("dbo.", string.Empty).ToPascalCase().ToSafeName();
@@ -292,6 +302,7 @@ namespace EasyOC.RDBMS.Services
         {
             throw new NotImplementedException();
         }
-
+  
+           
     }
 }

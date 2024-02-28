@@ -36,7 +36,7 @@
 
                 <label asp-for="ConnectionConfigId">@T["Connection Config"]</label>
                 @* <select asp-for="ConnectionConfigId" @change="loadAllTables" class="form-control"> </select> *@
-                <el-select clearable v-model="model.connectionConfigId" style="width:100%" @@change="loadAllTables"
+                <el-select clearable v-model="model.connectionConfigId" style="width:100%" @@change="loadAllTables()"
                            filterable placeholder="请选择">
                     <el-option v-for="item in allDbConnecton" :key="item.configId" :label="item.configName"
                                :value="item.configId">
@@ -53,7 +53,7 @@
                 <el-select v-model="model.tableName" :remote-method="loadAllTables" :loading="loading" remote
                            style="width:100%" filterable placeholder="请选择">
                     <el-option v-for="item in allTables" :key="`${item.schema}.${item.name}`"
-                               :label="`[${item.schema}].[${item.name}]`" :value="`${item.schema}.${item.name}`">
+                               :label="`[${item.schema}].[${item.name}]`" :value="item.schema?`${item.schema}.${item.name}`:item.name">
                     </el-option>
                 </el-select>
             </div>
@@ -102,7 +102,7 @@
                 tableFilter: {
                     connectionConfigId: "",
                     filterText: '@Model.MappingData',
-                    maxResultCount: 20,
+                    maxResultCount: 100,
                     VerificationToken:$("input[name='__RequestVerificationToken']").val()
                 }
             }
@@ -140,7 +140,7 @@
                     this.allDbConnecton = data.data;
                 })
             },
-            loadAllTables(filterText) {
+            loadAllTables(filterText=null) {
                 if (this.model.connectionConfigId) {
                     this.tableFilter.connectionConfigId = this.model.connectionConfigId;
                     this.tableFilter.filterText = filterText;
@@ -169,9 +169,15 @@
                     if (status != "success") {
                         this.$message("查询失败")
                     } else {
+                        //console.log(data)
                         this.recipeText = JSON.stringify(data.data);
-                        monacoEditor.getModel().setValue(data.data);
-                        monacoEditor.getAction(['editor.action.formatDocument'])._run();
+                        //必须把对象转成字符串
+                        monacoEditor.getModel().setValue(this.recipeText);
+                        monacoEditor.trigger("anything", "editor.action.formatDocument");
+
+                        //monacoEditor.getAction(['editor.action.formatDocument'])._run();
+                       // monacoEditor.getAction(["editor.action.formatDocument"])._run();
+                       // monacoEditor.getAction('editor.action.formatDocument').run();
                     }
                     this.loading = false;
                 })
@@ -185,7 +191,7 @@
                 console.log("this.recipeText", this.recipeText)
                 this.loading = true; 
                 $.ajax({
-                    url: "@Href("~/api/RDBMS/ImportDeploymentPackage")",
+                    url: "@Href("~/api/ContentTypeManagement/ImportDeploymentPackage")",// /​/api​/ContentTypeManagement​/ImportDeploymentPackage   RDBMS/ImportDeploymentPackage"
                     type: "POST",
                     contentType: "application/json",//指定消息请求类型
                     data:JSON.stringify({

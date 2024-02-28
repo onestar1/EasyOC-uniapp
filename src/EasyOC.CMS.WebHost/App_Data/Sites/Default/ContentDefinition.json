@@ -680,6 +680,41 @@
           }
         }
       ]
+    },
+    {
+      "Name": "coreshopuser",
+      "DisplayName": "商城用户信息",
+      "Settings": {
+        "ContentTypeSettings": {
+          "Creatable": true,
+          "Listable": true,
+          "Draftable": true,
+          "Versionable": true,
+          "Securable": true
+        }
+      },
+      "ContentTypePartDefinitionRecords": [
+        {
+          "PartName": "coreshopuser",
+          "Name": "coreshopuser",
+          "Settings": {}
+        },
+        {
+          "PartName": "FormPart",
+          "Name": "FormPart",
+          "Settings": {}
+        },
+        {
+          "PartName": "HtmlBodyPart",
+          "Name": "HtmlBodyPart",
+          "Settings": {}
+        },
+        {
+          "PartName": "ListPart",
+          "Name": "ListPart",
+          "Settings": {}
+        }
+      ]
     }
   ],
   "ContentPartDefinitionRecords": [
@@ -1309,7 +1344,112 @@
       "Name": "HtmlMenuItem",
       "Settings": {},
       "ContentPartFieldDefinitionRecords": []
+    },
+    {
+      "Name": "coreshopuser",
+      "Settings": {},
+      "ContentPartFieldDefinitionRecords": [
+        {
+          "FieldName": "TextField",
+          "Name": "shopuserid",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "shopuserid"
+            }
+          }
+        },
+        {
+          "FieldName": "BooleanField",
+          "Name": "username",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "username"
+            }
+          }
+        },
+        {
+          "FieldName": "TextField",
+          "Name": "password",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "password"
+            }
+          }
+        },
+        {
+          "FieldName": "TextField",
+          "Name": "mobile",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "mobile"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "sex",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "sex"
+            }
+          }
+        },
+        {
+          "FieldName": "DateField",
+          "Name": "birthday",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "birthday"
+            }
+          }
+        },
+        {
+          "FieldName": "MediaField",
+          "Name": "avatarimage",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "avatarimage"
+            }
+          }
+        },
+        {
+          "FieldName": "TextField",
+          "Name": "nickname",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "nickname"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "balance",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "balance"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "point",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "point"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "grade",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "grade"
+            }
+          }
+        }
+      ]
     }
   ],
-  "Identifier": "4v49m7fa8gtkw08sjj0ah2nddv"
+  "Identifier": "45zj5957yjhrfrw8z47var7w4z"
 }
