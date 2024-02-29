@@ -194,9 +194,10 @@
                     url: "@Href("~/api/ContentTypeManagement/ImportDeploymentPackage")",// /​/api​/ContentTypeManagement​/ImportDeploymentPackage   RDBMS/ImportDeploymentPackage"
                     type: "POST",
                     contentType: "application/json",//指定消息请求类型
-                    data:JSON.stringify({
-                        "json": this.recipeText
-                    }),
+                    @* data:JSON.stringify({
+                        "json":this.recipeText;
+                    }), *@
+                    data: this.recipeText,
                     success: (data) => {
                         this.$message.success("生成成功！")
                     }, error: (data) => {

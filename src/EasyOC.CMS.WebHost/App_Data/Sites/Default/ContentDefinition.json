@@ -715,6 +715,30 @@
           "Settings": {}
         }
       ]
+    },
+    {
+      "Name": "Tablecorecmsadvertposition",
+      "DisplayName": "Table_.corecmsadvertposition",
+      "Settings": {
+        "ContentTypeSettings": {
+          "Creatable": true,
+          "Listable": true,
+          "Draftable": true,
+          "Versionable": true,
+          "Securable": true
+        }
+      },
+      "ContentTypePartDefinitionRecords": [
+        {
+          "PartName": "Tablecorecmsadvertposition",
+          "Name": "Tablecorecmsadvertposition",
+          "Settings": {
+            "ContentTypePartSettings": {
+              "Position": "0"
+            }
+          }
+        }
+      ]
     }
   ],
   "ContentPartDefinitionRecords": [
@@ -1449,7 +1473,109 @@
           }
         }
       ]
+    },
+    {
+      "Name": "Tablecorecmsadvertposition",
+      "Settings": {
+        "ContentPartSettings": {
+          "Attachable": true,
+          "Description": "TABLE of Table_.corecmsadvertposition",
+          "DefaultPosition": "0"
+        }
+      },
+      "ContentPartFieldDefinitionRecords": [
+        {
+          "FieldName": "NumericField",
+          "Name": "id",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "id",
+              "Position": "0"
+            }
+          }
+        },
+        {
+          "FieldName": "TextField",
+          "Name": "code",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "code",
+              "Position": "1"
+            }
+          }
+        },
+        {
+          "FieldName": "DateField",
+          "Name": "createTime",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "createTime",
+              "Position": "2"
+            }
+          }
+        },
+        {
+          "FieldName": "BooleanField",
+          "Name": "isEnable",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "isEnable",
+              "Position": "3"
+            }
+          }
+        },
+        {
+          "FieldName": "TextField",
+          "Name": "name",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "name",
+              "Position": "4"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "platform",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "platform",
+              "Position": "5"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "sort",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "sort",
+              "Position": "6"
+            }
+          }
+        },
+        {
+          "FieldName": "NumericField",
+          "Name": "type",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "type",
+              "Position": "7"
+            }
+          }
+        },
+        {
+          "FieldName": "DateField",
+          "Name": "updateTime",
+          "Settings": {
+            "ContentPartFieldSettings": {
+              "DisplayName": "updateTime",
+              "Position": "8"
+            }
+          }
+        }
+      ]
     }
   ],
-  "Identifier": "45zj5957yjhrfrw8z47var7w4z"
+  "Identifier": "4zy2f9fkpnpz3s9ht2f33w4rxv"
 }
